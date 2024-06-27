@@ -6,27 +6,20 @@ type StyleButtonPropsType = {
     hover?: string;
 };
 
-export const WrapperButtons = styled.div`
-    display: flex;
-    flex-direction: row;
-    gap: 12px;
-    padding: 0 0 12px 10px;
-`;
-
 export const Button = styled.button<StyleButtonPropsType>`
-    border: 2px solid ${(props) => props.color || '#c61a9e'};
-    border-radius: 5px;
-    font: 700 10px 'Inter';
-    line-height: 20px;
-    padding: 4px 0;
     width: 86px;
     height: 30px;
+    border-radius: 5px;
+    font: 700 10px Inter;
+    padding: 4px 0;
 
     ${(props) =>
         props.buttonType === 'outlined' &&
         css<StyleButtonPropsType>`
             color: ${(props) => props.color || '#c61a9e'};
             background-color: transparent;
+            border: 2px solid;
+
 
             &:hover {
                 border-color: ${(props) => props.hover || '#bad6d7'};
@@ -37,12 +30,13 @@ export const Button = styled.button<StyleButtonPropsType>`
     ${(props) =>
         props.buttonType === 'primary' &&
         css<StyleButtonPropsType>`
-            background-color: ${(props) => props.color || '#c61a9e'};
             color: #ffffff;
+            background-color: ${(props) => props.color || '#c61a9e'};
+            border: none;
 
             &:hover {
-                background-color: ${(props) => props.hover || '#bad6d7'};
                 border-color: ${(props) => props.hover || '#bad6d7'};
+                background-color: ${(props) => props.hover || '#bad6d7'};
             }
         `}
 `;
